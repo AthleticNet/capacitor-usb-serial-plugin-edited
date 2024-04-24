@@ -1,6 +1,6 @@
 {
-  "name": "usb-serial-plugin",
-  "version": "0.0.6",
+  "name": "usb-serial-plugin-edited",
+  "version": "0.1.1",
   "description": "This plugin can be used for reading data from other device over the usb channel",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -13,14 +13,14 @@
     "ios/Plugin/",
     "UsbSerialPlugin.podspec"
   ],
-  "author": "asad96",
+  "author": "kalbzero",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asad-96/capacitor-plugin-usb-serial.git"
+    "url": "git+https://github.com/kalbzero/capacitor-plugin-usb-serial-edited.git"
   },
   "bugs": {
-    "url": "https://github.com/asad-96/capacitor-plugin-usb-serial/issues"
+    "url": "https://github.com/kalbzero/capacitor-plugin-usb-serial-edited/issues"
   },
   "keywords": [
     "capacitor",
