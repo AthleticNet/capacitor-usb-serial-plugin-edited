@@ -7,5 +7,6 @@ export declare class UsbSerialWeb extends WebPlugin implements UsbSerialPlugin {
     closeSerial(): Promise<UsbSerialResponse>;
     readSerial(): Promise<UsbSerialResponse>;
     writeSerial(data: UsbSerialWriteOptions): Promise<UsbSerialResponse>;
+    writeSerialHex(data: UsbSerialWriteOptions): Promise<UsbSerialResponse>;
     registerReadCall(callback: MyPluginCallback): Promise<CallbackID>;
 }

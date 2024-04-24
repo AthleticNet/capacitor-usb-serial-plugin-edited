@@ -105,6 +105,21 @@ writeSerial(data: UsbSerialWriteOptions) => any
 --------------------
 
 
+### writeSerialHex(...)
+
+```typescript
+writeSerialHex(data: UsbSerialWriteOptions) => any
+```
+
+| Param      | Type                                                                    |
+| ---------- | ----------------------------------------------------------------------- |
+| **`data`** | <code><a href="#usbserialwriteoptions">UsbSerialWriteOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
 ### registerReadCall(...)
 
 ```typescript
