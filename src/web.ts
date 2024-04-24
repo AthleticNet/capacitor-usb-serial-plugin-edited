@@ -43,6 +43,13 @@ export class UsbSerialWeb extends WebPlugin implements UsbSerialPlugin {
     };
   }
 
+  async writeSerialHex(data: UsbSerialWriteOptions): Promise<UsbSerialResponse> {
+    return {
+      success: false,
+      error: { message: 'Usb serial write not implemented on web yet!' + data, cause: '' }
+    };
+  }  
+
   async registerReadCall(callback: MyPluginCallback): Promise<CallbackID> {
     return 'Usb read call not implemented on web yet!' + callback.name;
   }

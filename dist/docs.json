@@ -99,6 +99,25 @@
         "slug": "writeserial"
       },
       {
+        "name": "writeSerialHex",
+        "signature": "(data: UsbSerialWriteOptions) => any",
+        "parameters": [
+          {
+            "name": "data",
+            "docs": "",
+            "type": "UsbSerialWriteOptions"
+          }
+        ],
+        "returns": "any",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "UsbSerialWriteOptions",
+          "UsbSerialResponse"
+        ],
+        "slug": "writeserialhex"
+      },         
+      {
         "name": "registerReadCall",
         "signature": "(callback: MyPluginCallback) => any",
         "parameters": [

@@ -47,6 +47,13 @@ public class UsbSerialPlugin extends Plugin {
         call.resolve(ret);
     }
 
+    @PluginMethod
+    public void writeSerialHex(PluginCall call) {
+        String data = call.hasOption("data") ? call.getString("data") : "";
+        JSObject ret = implementation.writeSerialHex(data);
+        call.resolve(ret);
+    }    
+
     @Override
     protected void handleOnResume() {
         super.handleOnResume();
