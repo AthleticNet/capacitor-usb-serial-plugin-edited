@@ -116,7 +116,7 @@
           "UsbSerialResponse"
         ],
         "slug": "writeserialhex"
-      },         
+      },
       {
         "name": "registerReadCall",
         "signature": "(callback: MyPluginCallback) => any",

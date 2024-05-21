@@ -19,6 +19,7 @@ npx cap sync
 * [`closeSerial()`](#closeserial)
 * [`readSerial()`](#readserial)
 * [`writeSerial(...)`](#writeserial)
+* [`writeSerialHex(...)`](#writeserialhex)
 * [`registerReadCall(...)`](#registerreadcall)
 * [Interfaces](#interfaces)
 
