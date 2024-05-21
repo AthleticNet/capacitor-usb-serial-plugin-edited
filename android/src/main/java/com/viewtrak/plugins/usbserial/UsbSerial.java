@@ -267,21 +267,21 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
 
     JSObject writeSerialHex(String str) {
         JSObject jsObject = new JSObject();
-        if(!connected) {
+        if (!connected) {
             jsObject.put("error", new Error("not connected", new Throwable("NOT_CONNECTED")));
             jsObject.put("success", false);
             return jsObject;
         }
-        if(str.length() == 0) {
+        if (str.length() == 0) {
             jsObject.put("error", new Error("can't send empty string to device", new Throwable("EMPTY_STRING")));
             jsObject.put("success", false);
             return jsObject;
         }
         try {
-            str = str.replaceAll("\\s+",""); 
+            str = str.replaceAll("\\s+", ""); // Remover todos os espaços em branco
             byte[] data = HexDump.hexStringToByteArray(str);
             usbSerialPort.write(data, WRITE_WAIT_MILLIS);
-            jsObject.put("data", str);
+            jsObject.put("data", Arrays.toString(data)); // Alteração aqui
             jsObject.put("success", true);
             return jsObject;
         } catch (Exception e) {
@@ -290,7 +290,7 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
             disconnect();
             return jsObject;
         }
-    }       
+    }      
 
 
     void onResume() {
