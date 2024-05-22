@@ -278,10 +278,14 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
             return jsObject;
         }
         try {
-            str = str.replaceAll("\\s+", ""); // Remover todos os espaços em branco
+            str = str.replaceAll("\\s+", "");
             byte[] data = HexDump.hexStringToByteArray(str);
             usbSerialPort.write(data, WRITE_WAIT_MILLIS);
-            jsObject.put("data", Arrays.toString(data)); // Alteração aqui
+            
+            // Converter os bytes de volta para uma string de caracteres usando UTF-8
+            String characterString = new String(data, StandardCharsets.UTF_8);
+            
+            jsObject.put("data", characterString);
             jsObject.put("success", true);
             return jsObject;
         } catch (Exception e) {
