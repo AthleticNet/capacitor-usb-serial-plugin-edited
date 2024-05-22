@@ -30,9 +30,11 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.lang.Error;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 public class UsbSerial implements SerialInputOutputManager.Listener {
     // call that will be used to send back usb device attached/detached event
