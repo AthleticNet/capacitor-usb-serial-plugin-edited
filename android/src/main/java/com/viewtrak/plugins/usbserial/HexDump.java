@@ -129,14 +129,11 @@ public class HexDump {
     }
 
     private static int toByte(char c) {
-        if (c >= '0' && c <= '9')
-            return (c - '0');
-        if (c >= 'A' && c <= 'F')
-            return (c - 'A' + 10);
-        if (c >= 'a' && c <= 'f')
-            return (c - 'a' + 10);
-
-        throw new InvalidParameterException("Invalid hex char '" + c + "'");
+        int byteValue = Character.digit(c, 16);
+        if (byteValue == -1) {
+            throw new IllegalArgumentException("Invalid hex character: " + c);
+        }
+        return byteValue;
     }
 
     public static byte[] hexStringToByteArray(String hexString) {
@@ -148,13 +145,5 @@ public class HexDump {
         }
 
         return buffer;
-    }
-
-    private static int toByte(char c) {
-        int byteValue = Character.digit(c, 16);
-        if (byteValue == -1) {
-            throw new IllegalArgumentException("Invalid hex character: " + c);
-        }
-        return byteValue;
     }
 }

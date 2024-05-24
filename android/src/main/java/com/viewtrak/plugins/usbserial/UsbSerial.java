@@ -280,7 +280,7 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
             return jsObject;
         }
         try {
-            str = str.split(" ").join("");
+            str = str.replaceAll(" ", "");
             byte[] data = HexDump.hexStringToByteArray(str);
             usbSerialPort.write(data, WRITE_WAIT_MILLIS);
             
