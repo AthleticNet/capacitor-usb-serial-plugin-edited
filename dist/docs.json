@@ -7,15 +7,15 @@
     "methods": [
       {
         "name": "usbAttachedDetached",
-        "signature": "(callback: MyPluginCallback) => any",
+        "signature": "(callback: MyPluginCallback) => Promise<CallbackID>",
         "parameters": [
           {
             "name": "callback",
             "docs": "",
-            "type": "(data: UsbSerialResponse) => void"
+            "type": "MyPluginCallback"
           }
         ],
-        "returns": "any",
+        "returns": "Promise<string>",
         "tags": [],
         "docs": "",
         "complexTypes": [
@@ -26,9 +26,9 @@
       },
       {
         "name": "connectedDevices",
-        "signature": "() => any",
+        "signature": "() => Promise<UsbSerialResponse>",
         "parameters": [],
-        "returns": "any",
+        "returns": "Promise<UsbSerialResponse>",
         "tags": [],
         "docs": "",
         "complexTypes": [
@@ -38,7 +38,7 @@
       },
       {
         "name": "openSerial",
-        "signature": "(options: UsbSerialOptions) => any",
+        "signature": "(options: UsbSerialOptions) => Promise<UsbSerialResponse>",
         "parameters": [
           {
             "name": "options",
@@ -46,20 +46,20 @@
             "type": "UsbSerialOptions"
           }
         ],
-        "returns": "any",
+        "returns": "Promise<UsbSerialResponse>",
         "tags": [],
         "docs": "",
         "complexTypes": [
-          "UsbSerialOptions",
-          "UsbSerialResponse"
+          "UsbSerialResponse",
+          "UsbSerialOptions"
         ],
         "slug": "openserial"
       },
       {
         "name": "closeSerial",
-        "signature": "() => any",
+        "signature": "() => Promise<UsbSerialResponse>",
         "parameters": [],
-        "returns": "any",
+        "returns": "Promise<UsbSerialResponse>",
         "tags": [],
         "docs": "",
         "complexTypes": [
@@ -69,9 +69,9 @@
       },
       {
         "name": "readSerial",
-        "signature": "() => any",
+        "signature": "() => Promise<UsbSerialResponse>",
         "parameters": [],
-        "returns": "any",
+        "returns": "Promise<UsbSerialResponse>",
         "tags": [],
         "docs": "",
         "complexTypes": [
@@ -81,7 +81,7 @@
       },
       {
         "name": "writeSerial",
-        "signature": "(data: UsbSerialWriteOptions) => any",
+        "signature": "(data: UsbSerialWriteOptions) => Promise<UsbSerialResponse>",
         "parameters": [
           {
             "name": "data",
@@ -89,18 +89,18 @@
             "type": "UsbSerialWriteOptions"
           }
         ],
-        "returns": "any",
+        "returns": "Promise<UsbSerialResponse>",
         "tags": [],
         "docs": "",
         "complexTypes": [
-          "UsbSerialWriteOptions",
-          "UsbSerialResponse"
+          "UsbSerialResponse",
+          "UsbSerialWriteOptions"
         ],
         "slug": "writeserial"
       },
       {
         "name": "writeSerialHex",
-        "signature": "(data: UsbSerialWriteOptions) => any",
+        "signature": "(data: UsbSerialWriteOptions) => Promise<UsbSerialResponse>",
         "parameters": [
           {
             "name": "data",
@@ -108,26 +108,26 @@
             "type": "UsbSerialWriteOptions"
           }
         ],
-        "returns": "any",
+        "returns": "Promise<UsbSerialResponse>",
         "tags": [],
         "docs": "",
         "complexTypes": [
-          "UsbSerialWriteOptions",
-          "UsbSerialResponse"
+          "UsbSerialResponse",
+          "UsbSerialWriteOptions"
         ],
         "slug": "writeserialhex"
       },
       {
         "name": "registerReadCall",
-        "signature": "(callback: MyPluginCallback) => any",
+        "signature": "(callback: MyPluginCallback) => Promise<CallbackID>",
         "parameters": [
           {
             "name": "callback",
             "docs": "",
-            "type": "(data: UsbSerialResponse) => void"
+            "type": "MyPluginCallback"
           }
         ],
-        "returns": "any",
+        "returns": "Promise<string>",
         "tags": [],
         "docs": "",
         "complexTypes": [
@@ -161,7 +161,7 @@
           "complexTypes": [
             "UsbSerialError"
           ],
-          "type": "UsbSerialError | undefined"
+          "type": "UsbSerialError"
         },
         {
           "name": "data",
@@ -284,5 +284,32 @@
       ]
     }
   ],
-  "enums": []
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "MyPluginCallback",
+      "slug": "myplugincallback",
+      "docs": "",
+      "types": [
+        {
+          "text": "(data: UsbSerialResponse): void",
+          "complexTypes": [
+            "UsbSerialResponse"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CallbackID",
+      "slug": "callbackid",
+      "docs": "",
+      "types": [
+        {
+          "text": "string",
+          "complexTypes": []
+        }
+      ]
+    }
+  ],
+  "pluginConfigs": []
 }
