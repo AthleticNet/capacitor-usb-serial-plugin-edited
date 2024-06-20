@@ -267,6 +267,10 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
         }
     }
 
+    public String join( String delimiter, String[] array ) {
+      return Arrays.asList( array ).stream().collect( Collectors.joining( delimiter ) );
+    }
+    
     JSObject writeSerialHex(String str) {
         JSObject jsObject = new JSObject();
         if (!connected) {
@@ -280,7 +284,8 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
             return jsObject;
         }
         try {
-            str = str.replaceAll(" ", "");
+            String[] arrString = str.split(" ");
+            str = this.join("", arrString);//str = str.replaceAll(" ", "");
             byte[] data = HexDump.hexStringToByteArray(str);
             usbSerialPort.write(data, WRITE_WAIT_MILLIS);
             
