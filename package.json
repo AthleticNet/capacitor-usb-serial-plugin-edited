@@ -1,6 +1,6 @@
 {
-  "name": "usb-serial-plugin-edited",
-  "version": "0.1.15",
+  "name": "@athleticnet/usb-serial-plugin-edited",
+  "version": "0.2.0",
   "description": "This plugin can be used for reading data from other device over the usb channel",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -41,7 +41,9 @@
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "ppatch": "npm version patch && npm publish",
+    "pminor": "npm version minor && npm publish"
   },
   "devDependencies": {
     "@capacitor/android": "^5.5.1",
