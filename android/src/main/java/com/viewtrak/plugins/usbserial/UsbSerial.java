@@ -34,7 +34,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 
@@ -268,10 +267,6 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
             return jsObject;
         }
     }
-
-    public String join( String delimiter, String[] array ) {
-      return Arrays.asList( array ).stream().collect( Collectors.joining( delimiter ) );
-    }
     
     JSObject writeSerialHex(String str) {
         JSObject jsObject = new JSObject();
@@ -286,8 +281,7 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
             return jsObject;
         }
         try {
-            String[] arrString = str.split(" ");
-            str = this.join("", arrString);//str = str.replaceAll(" ", "");
+            str = str.replaceAll(" ", "");
             byte[] data = HexDump.hexStringToByteArray(str);
             usbSerialPort.write(data, WRITE_WAIT_MILLIS);
             
