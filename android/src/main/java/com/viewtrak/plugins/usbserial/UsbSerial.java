@@ -228,10 +228,13 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
         try {
             byte[] buffer = new byte[8192];
             int len = usbSerialPort.read(buffer, READ_WAIT_MILLIS);
-            String str = HexDump.toHexString(Arrays.copyOf(buffer, len));
-            str.concat("\n");
-            jsObject.put("data", str);
+            if (len > 0) {
+                jsObject.put("data", Arrays.copyOf(buffer, len));
+            } else {
+                jsObject.put("data", new byte[0]);
+            }
             jsObject.put("success", true);
+
         } catch (IOException e) {
             // when using read with timeout, USB bulkTransfer returns -1 on timeout _and_ errors
             // like connection loss, so there is typically no exception thrown here on error
@@ -356,9 +359,7 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
             JSObject jsObject = new JSObject();
             this.readCall.setKeepAlive(true);
             try {
-                String str = HexDump.toHexString(data);
-                str.concat("\n");
-                jsObject.put("data", str);
+                jsObject.put("data", data);
                 jsObject.put("success", true);
             } catch (Exception exception) {
                 jsObject.put("error", new Error(exception.getMessage(), exception.getCause()));
