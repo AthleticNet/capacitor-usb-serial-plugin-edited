@@ -1,6 +1,6 @@
 {
   "name": "@athleticnet/usb-serial-plugin-edited",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "This plugin can be used for reading data from other device over the usb channel",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
