@@ -11,7 +11,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "UsbSerialPlugin.podspec"
+    "AthleticnetUsbSerialPluginEdited.podspec"
   ],
   "author": "kalbzero",
   "license": "MIT",
