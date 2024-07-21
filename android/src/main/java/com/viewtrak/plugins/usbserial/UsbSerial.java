@@ -184,7 +184,11 @@ public class UsbSerial implements SerialInputOutputManager.Listener {
                     flags = 0;
                 }
                 PendingIntent usbPermissionIntent = PendingIntent.getBroadcast(this.mActivity, 0, new Intent(USB_PERMISSION), flags);
-                this.mActivity.registerReceiver(broadcastReceiver, new IntentFilter(USB_PERMISSION));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    this.mActivity.registerReceiver(broadcastReceiver, new IntentFilter(USB_PERMISSION), Context.RECEIVER_EXPORTED);
+                } else {
+                    this.mActivity.registerReceiver(broadcastReceiver, new IntentFilter(USB_PERMISSION));
+                }
                 usbManager.requestPermission(driver.getDevice(), usbPermissionIntent);
                 return;
             }
